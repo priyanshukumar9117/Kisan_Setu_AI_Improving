@@ -341,7 +341,7 @@ Kisan_Sarthi/
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/priyanshukumar9117/withFrontend.git
+git clone https://github.com/priyanshukumar9117/Kisan_Setu_AI_Improving.git
 cd withFrontend
 ```
 
@@ -377,9 +377,9 @@ cp .env.example .env
 Edit `.env` and fill in your keys:
 
 ```env
-TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here     # Optional: for Telegram bot
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here      # Optional: for Telegram bot
 OLLAMA_BASE_URL=http://localhost:11434               # Default Ollama URL
-OLLAMA_MODEL=llama3.2:1b                             # LLM model to use
+OLLAMA_MODEL=gpt-oss:120b-cloud                      # LLM model to use
 DJANGO_SECRET_KEY=your_django_secret_key_here        # Any random string
 HF_TOKEN=your_huggingface_token_here                 # Optional: for gated models
 DATA_GOV_API_KEY=your_data_gov_api_key_here          # Get free key at data.gov.in
@@ -398,7 +398,7 @@ GEMINI_API_KEY=your_gemini_api_key_here              # Optional: for Gemini dise
 
 ```bash
 # Pull the LLM model (≈ 1.3 GB download)
-ollama pull llama3.2:1b
+ollama pull gpt-oss:120b-cloud
 
 # Verify it's running
 ollama list
