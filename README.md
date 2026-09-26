@@ -50,7 +50,7 @@ The system works as a **web application** (accessible from any browser), and als
 ### AI / Machine Learning
 | Technology | Purpose |
 |---|---|
-| **Ollama (Llama 3.2)** | Local LLM for generating contextual, Bihar-specific farming advice. Runs fully offline after model download |
+| **Ollama (gpt-oss:120b-cloud)** | Local LLM for generating contextual, Bihar-specific farming advice. Runs fully offline after model download |
 | **LangChain + ChromaDB** | RAG (Retrieval-Augmented Generation) pipeline — agricultural knowledge documents are chunked, embedded, and searched at query time |
 | **HuggingFace Transformers (MobileNet V2)** | Local plant disease classification from leaf images (offline, no API key) |
 | **Google Gemini Vision API** | Optional cloud-based disease detection with higher accuracy and detailed symptom analysis |
@@ -342,7 +342,7 @@ Kisan_Sarthi/
 
 ```bash
 git clone https://github.com/priyanshukumar9117/Kisan_Setu_AI_Improving.git
-cd withFrontend
+cd Kisan_Setu_AI_Improving
 ```
 
 ### Step 2: Create and Activate Virtual Environment
