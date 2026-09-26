@@ -53,6 +53,10 @@ export const ChatView = () => `
                     <button class="voice-btn voice-stop-btn" id="voice-stop-btn" title="Stop Voice Response" style="display:none;">
                         <i data-lucide="square"></i>
                     </button>
+                    <label class="voice-btn image-upload-btn" id="image-upload-label" title="Upload crop image for disease detection">
+                        <i data-lucide="camera"></i>
+                        <input type="file" id="disease-image-input" accept="image/*" capture="environment" style="display:none;">
+                    </label>
                 </div>
                 <input type="text" id="chat-input" class="chat-input" placeholder="Ask about crops, weather, fertilizers...">
                 <button id="send-btn" class="btn btn-primary send-btn" title="Send message">
@@ -70,6 +74,8 @@ export const ChatView = () => `
             box-shadow: var(--shadow-lg);
             padding: 24px;
             margin: 40px 0;
+            width: 100%;
+            max-width: 100%;
         }
         .chat-header {
             display: flex;
@@ -492,39 +498,139 @@ export const ChatView = () => `
             transform: translateY(-1px);
         }
         @media (max-width: 820px) {
+            .chat-panel {
+                margin: 20px 0;
+                padding: 20px;
+            }
             .chat-header {
                 flex-direction: column;
                 align-items: stretch;
             }
+            .chat-title-row {
+                width: 100%;
+                justify-content: flex-start;
+            }
             .chat-actions-row {
                 justify-content: flex-start;
+                width: 100%;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .chat-actions-row .mode-toggle,
+            .chat-actions-row .lang-selector,
+            .chat-actions-row #clear-chat-btn {
                 width: 100%;
             }
             .chat-input-area {
                 grid-template-columns: 1fr;
+                gap: 12px;
             }
             .chat-tool-group {
                 justify-content: flex-start;
+                width: 100%;
+            }
+            .chat-tool-group .voice-btn {
+                width: 48px;
+                height: 48px;
             }
             .send-btn {
                 width: 100%;
                 border-radius: var(--radius-md);
                 height: 52px;
             }
+            .chat-messages {
+                max-height: 55vh;
+            }
+            .message {
+                max-width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .message-user,
+            .message-ai {
+                width: 100%;
+            }
+            .message-avatar {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+            }
         }
         @media (max-width: 560px) {
             .chat-panel {
-                padding: 18px;
+                padding: 16px;
             }
             .chat-title-icon {
                 width: 44px;
                 height: 44px;
             }
+            .chat-title-text h2 {
+                font-size: 1.25rem;
+            }
             .message {
-                padding: 14px;
+                padding: 12px;
             }
             .chat-input {
-                padding: 14px 18px;
+                padding: 14px 16px;
+                min-height: 48px;
+            }
+            .chat-actions-row {
+                gap: 10px;
+            }
+            .chat-input-area {
+                padding: 10px 10px;
+            }
+            .voice-btn {
+                width: 44px;
+                height: 44px;
+            }
+            .image-upload-btn {
+                cursor: pointer;
+                background: rgba(212, 163, 115, 0.15) !important;
+                border-color: rgba(212, 163, 115, 0.3) !important;
+                color: var(--accent) !important;
+            }
+            .image-upload-btn:hover {
+                background: var(--accent) !important;
+                color: white !important;
+            }
+            .disease-result-card {
+                margin-top: 8px;
+                padding: 14px;
+                border-radius: 14px;
+                background: rgba(255,255,255,0.95);
+                border: 1px solid rgba(45,90,39,0.12);
+            }
+            .disease-result-card .disease-header {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 8px;
+            }
+            .disease-result-card .disease-name {
+                font-weight: 700;
+                font-size: 1rem;
+                color: var(--primary-dark);
+            }
+            .disease-result-card .disease-confidence {
+                font-size: 0.82rem;
+                padding: 2px 8px;
+                border-radius: 999px;
+                background: rgba(16,185,129,0.12);
+                color: var(--success);
+                font-weight: 600;
+            }
+            .disease-result-card .disease-image-preview {
+                width: 100%;
+                max-width: 200px;
+                border-radius: 10px;
+                margin-bottom: 8px;
+            }
+            .send-btn {
+                padding: 0;
+            }
+            .chat-panel {
+                margin: 16px 0;
             }
         }
     </style>
